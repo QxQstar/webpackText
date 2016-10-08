@@ -2,10 +2,10 @@
  * Created by Administrator on 2016/10/8.
  */
 module.exports = {
-    entry:["./build/module1.js","./build/module2.js"],
+    entry:"./a46c5813c705087a41147403452c0bdf.jpg",
     output:{
         path:"./build/",
-        filename:"build.js"
+        filename:"min.jpg"
     },
     module:{
         loaders:[

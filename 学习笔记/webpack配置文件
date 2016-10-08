@@ -8,6 +8,15 @@
     output:配置打包的结果，一个对象
         fileName：定义输出文件名
         path：定义输出文件路径
+    module:定义对模块的处理逻辑，一个对象
+            loaders：定义一系列的加载器，一个数组
+                [
+                    {
+                        test:正则表达式，用于匹配到的文件
+                        loader/loaders：字符串或者数组，处理匹配到的文件。如果只需要用到一个模块加载器
+                        则使用loader：string，如果要使用多个模块加载器，则使用loaders：array
+                    }
+                ]
 4.entry详细介绍
     （1）当entry是一个字符串时，这个字符串表示需要打包的模块的路径,如果只有一个要打包的模块，可以使用这种
     形式
@@ -22,3 +31,31 @@
         }
         注:当entry是一个键值对形式的对象时，包名就是键名，output的filename不能是一个固定的值，因为每个包的
         名字不能一样
+5.output详细说明
+    （1）ouput是一个对象
+    （2）output.filename:指定输出文件名，一个字符串。当输出一个文件，output.filename为一个确定的字符串
+        如：output:{
+            filename:"build.js"
+        }
+        当输出多个文件，output.filename不能为一个确定的字符串。为了让每个文件有一个唯一的名字，需要用到下面
+        的变量
+        [name] is replaced by the name of the chunk.对应entry的键名
+
+        [hash] is replaced by the hash of the compilation.
+
+        [chunkhash] is replaced by the hash of the chunk.
+    （3）output.path:指定输出文件的路径，相对路径，一个字符串
+    （4）output还有其他的一些值，不在这里说明
+6.module详细说明
+    （1）module是一个对象，定义对模块的处理逻辑
+    （2）module.loaders是一个数组，定义一系列加载器，这个数组中的每一项都是一个对象
+    （3）module.loaders:[
+        {
+            test:正则，用于匹配要处理的文件
+            loader/loaders: 字符串或者数组， 如果只需要用到一个模块加载器 ,则使用loader：string，
+            如果要使用多个模块加载器，则使用loaders：array
+            include:字符串或者数组，指包含的文件夹
+            exclude：字符串或者数组，指排除的文件夹
+        }
+    ]
+    （4）module除了可以配置loaders以外还能配置其他的值
