@@ -1,0 +1,6 @@
+1.打包命令：webpack <entry> <output>
+    <entry>为需要打包的入口文件，<output>为打包成的文件。例如 webpack app/index.js build/build.js，将app文件
+    夹中的index.js打包到build文件夹中的build.js中。
+2.webpack默认只处理js文件，如果要处理其他文件就需要模块加载器。加载器需要另外安装。
+        安装加载器：npm install xxx-loader --save-dev
+        例如：css-loader,style-loader

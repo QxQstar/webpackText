@@ -1,0 +1,14 @@
+前提：必须安装node
+1.通过npm在全局中安装webpack
+     npm install webpack -g
+2.在项目中使用webpack
+    （1）通过在命令行中运行npm init命令，添加一个package.json配置文件
+    （2）将webpack安装在项目并且将webpack添加到package.json文件中
+            $ npm install webpack --save-dev
+3.版本
+    （1）webpack有两个版本，分别是稳定版和 beta 版，beta 版在版本字符串中通过-beta标记。为了严谨你应该使用
+    稳定版
+4.开发工具
+    （1）webpack-dev-server是一个轻量级的服务器，修改源代码后，能自动的刷新浏览器，如果需要使用它，你能
+    通过下面的方式安装它：
+        npm install webpack-dev-server --save-dev

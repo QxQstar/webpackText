@@ -1,0 +1,67 @@
+通过npm安装webpack后，你就能够在命令行中使用webpack了
+1.在命令行中使用webpack
+    webpack <entry> <output>
+    (1)entry:传递一个文件或者请求字符。你能够设置对个入口（每个入口都会在启动的时候被加载）。它将会映射到
+    配置项entry
+    （2）output：传递一个文件路径。它将会映射到配置项output.path 和 output.filename
+2.webpack配置文件：webpack.config.js
+    （1）在项目的根目录创建一个名为webpack.config.js的文件。将配置项写在这个文件中
+            module.exports = {
+                // configuration
+            };
+    （2）配置项的内容
+        a.一个简单的例子
+            module.exports = {
+                                context: __dirname + "/app",
+                                entry: "./entry",
+                                output: {
+                                    path: __dirname + "/dist",
+                                    filename: "bundle.js"
+                                }
+                        };
+            （a1）content.入口文件的基目录
+            （a2）entry.打包的入口文件。如果是一个字符串，这个字符串指在启动时加载的模块。
+            如果是一个数组，在启动时，每个模块都会被加载，最后一个模块被暴露出来。
+            如果是一个对象，多个入口包被创建，并且键为模块名，值可以是字符串或者数组
+                如：entry: {
+                          page1: "./page1",
+                          page2: ["./entry1", "./entry2"]
+                      },
+                      output: {
+                          // Make sure to use [name] or [id] in output.filename
+                          //  when using multiple entry points
+                          filename: "[name].bundle.js",
+                          chunkFilename: "[id].bundle.js"
+                      }
+            （a3）output.告诉webpack打包后的文件放在什么磁盘上的什么位置
+                    output.filename:指定每个输出文件在磁盘上名字
+                        单个入口：
+                        {
+                            entry: './src/app.js',
+                              output: {
+                                filename: 'bundle.js',
+                                path: './built'
+                              }
+                        }
+                        多个入口
+                        {
+                          entry: {
+                            app: './src/app.js',
+                            search: './src/search.js'
+                          },
+                          output: {
+                            filename: '[name].js',
+                            path: __dirname + '/built'
+                          }
+                        }
+                        [name]是模块名。当打包第一个模块时它指app，当打包第二个模块时它指search。
+                        _dirname是当前路径
+                    output.path：指出口的路径，它是一个相对路径。
+        b.module.exports除了可以配置上面的项，还可以配置module.loaders。
+            module.loaders：是一个需要使用的加载器的数组，每一项可以用下面的属性
+                text：一个正则表达式，匹配文件后缀名
+                include：字符串或者数组，包含的文件或文件夹
+                exclude: 字符串或者数组，排除的文件或文件夹
+                loader|loaders:处理匹配到的文件
+
+
