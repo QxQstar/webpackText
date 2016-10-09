@@ -17,6 +17,8 @@
                         则使用loader：string，如果要使用多个模块加载器，则使用loaders：array
                     }
                 ]
+    resolve:影响对模块的解析，一个对象
+            extensions：自动补全识别后缀，是一个数组
 4.entry详细介绍
     （1）当entry是一个字符串时，这个字符串表示需要打包的模块的路径,如果只有一个要打包的模块，可以使用这种
     形式
@@ -46,7 +48,7 @@
         [chunkhash] is replaced by the hash of the chunk.
     （3）output.path:指定输出文件的路径，相对路径，一个字符串
     （4）output还有其他的一些值，不在这里说明
-6.module详细说明
+6.module.loaders详细说明
     （1）module是一个对象，定义对模块的处理逻辑
     （2）module.loaders是一个数组，定义一系列加载器，这个数组中的每一项都是一个对象
     （3）module.loaders:[
@@ -59,3 +61,11 @@
         }
     ]
     （4）module除了可以配置loaders以外还能配置其他的值
+7.resolve.extensions详细说明
+    （1）resolve.extensions并不是必须配置的，当不配置时，会使用默认值
+    ["", ".webpack.js", ".web.js", ".js"]，当手动为resolve.extensions设置值，
+    它的默认值会被覆盖
+    （2）如果你想要每个模块都能够按照它们自己扩展名正确的被解析，要在数组中添加一个空字符串。
+    （3）如果你想请求一个js文件但是在请求时不带扩展（如：require('somecode')）,那么就需要
+    将'.js'添加到数组中。其他文件一样
+    （4）resolve还有需要的配置项

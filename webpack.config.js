@@ -2,17 +2,21 @@
  * Created by Administrator on 2016/10/8.
  */
 module.exports = {
-    entry:"./a46c5813c705087a41147403452c0bdf.jpg",
+    entry:"./app/index.js",
     output:{
         path:"./build/",
-        filename:"min.jpg"
+        filename:"build.js"
     },
     module:{
         loaders:[
             {
-                test:/.css$/,
-                loaders:["style","css"]
+                test:/.*\.css$/,
+                loaders:["style","css"],
+                exclude:'./node_modules/'
             }
         ]
+    },
+    resolve:{
+        extensions:['','.css','.js','jsx']
     }
 };
