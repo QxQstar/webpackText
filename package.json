@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-html":"webpack --config webpack.html.config.js",
+    "build": "webpack-dev-server --hot --inline --content-base ./build/"
   },
   "author": "qin",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^0.25.0",
+    "html-webpack-plugin": "^2.22.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2"
   }

@@ -1,0 +1,21 @@
+1.webpack还支持一系列插件，在使用插件之前要先安装相应的插件，然后再在webpack.config.js文件中
+去引如相应的插件（var parameter = require("插件名")），除了引入插件还要在plugins中配置插件
+2.通过npm install命令去安装插件
+3.使用插件，以html-webpack-plugin（自动生成html文件）为例
+    var autoHtml = require('html-webpack-plugin');
+    module.exports = {
+        //somecode
+        plugins:[
+            new autoHtml({
+                    'title':'hello',//生成的html文件的标题为hello
+                    'filename':'class.html',//生成一个文件名为class的html文件，默认生成index.html
+                    chunks:['one']//在生成的html文件中引用one模块（abc模块是通过webpack命令
+                    打包生成的模块，默认将引用所有打包生成的模块）
+                });
+        ]
+    }
+    配置完成后在命令行中输入 webpack-dev-server --hot --inline --content-base './build' 就
+    可以在浏览器中打开生成的这个html文件（这行命令中的--content-base './build会让服务
+    从build文件夹中去加载内容，默认会从项目根目录中加载），这个html文件是在内存中，通过webpack命令
+    将这个html写入磁盘中，磁盘中的html文件可以在build文件夹中找到
+    （这是因为output.path的值为'./build/'）

@@ -69,3 +69,8 @@
     （3）如果你想请求一个js文件但是在请求时不带扩展（如：require('somecode')）,那么就需要
     将'.js'添加到数组中。其他文件一样
     （4）resolve还有需要的配置项
+8.webpack默认的配置文件是webpack.config.js,当在命令行中输入webpack时默认找的是webpack.config.js。
+通过在package.json的scripts中添加例如
+    "start-html":"webpack --config webpack.html.config.js"
+在命令行中输入npm run start-html查找的就是webpack.html.config.js，通过这种方式可以实现不同的
+配置文件有不同的用处，这样就不用反复修改同一个配置文件
