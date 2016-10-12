@@ -4,11 +4,10 @@
 var autoHtml = require('html-webpack-plugin');
 module.exports = {
     entry:{
-        one:"./app/one.js",
-        two:"./app/two.js"
+        one:"./es6/index.js"
     },
     output:{
-        path:"./build/",
+        path:"./es6-build/",
         filename:"[name].js"
     },
     module:{
@@ -16,6 +15,11 @@ module.exports = {
             {
                 test:/.*\.css$/,
                 loaders:["style","css"],
+                exclude:'./node_modules/'
+            },
+            {
+                test:/\.js$/,
+                loader:'babel',
                 exclude:'./node_modules/'
             }
         ]
@@ -26,7 +30,7 @@ module.exports = {
     plugins:[
         new autoHtml({
             'title':"hello",
-            'filename':"class1.html",
+            'filename':"index.html",
             chunks:['one']
         })
     ]

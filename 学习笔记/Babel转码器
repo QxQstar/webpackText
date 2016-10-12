@@ -1,0 +1,14 @@
+1.全局安装：npm install babel-cli -g
+2.安装在项目并写在依赖中：npm install babel-cli --save-dev
+3.输出一个文件：babel index.js --out-file build.js 或者 babel index.js -o build.js
+5.babel有一个配置文件.babelrc,该文件位于项目根目录中，这个文件中是一个json
+4.要将es6代码转换为es5代码还需要安装babel-preset-es2015,然后将es2015写入.babelrc
+文件的presets数组中
+5.babel可以单独使用也可以和webpack结合使用，当babel+webpack使用时，需安装一个loader（babel-loader），
+然后在webpack的配置文件的module.loaders中添加相应的配置，如：
+    {
+        test:/.+\.js$/,
+        loader:'babel-loader',
+        query:['es2015']
+    }
+    然后运行webpack进行打包

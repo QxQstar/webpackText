@@ -5,14 +5,26 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-html":"webpack --config webpack.html.config.js",
-    "build": "webpack-dev-server --hot --inline --content-base ./build/"
+    "start-html": "webpack --config webpack.html.config.js",
+    "es6": "webpack --config webpack.es6.config.js",
+    "react": "webpack --config webpack.react.config.js",
+    "build": "webpack-dev-server --hot --inline --content-base ./build/",
+    "build-es6": "webpack-dev-server --hot --inline  --config webpack.es6.config.js",
+    "build-react": "webpack-dev-server --hot --inline --content-base ./react-build/  --config webpack.react.config.js"
   },
   "author": "qin",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
     "css-loader": "^0.25.0",
     "html-webpack-plugin": "^2.22.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2"
   }

@@ -9,7 +9,7 @@
             new autoHtml({
                     'title':'hello',//生成的html文件的标题为hello
                     'filename':'class.html',//生成一个文件名为class的html文件，默认生成index.html
-                    chunks:['one']//在生成的html文件中引用one模块（abc模块是通过webpack命令
+                    chunks:['one']//在生成的html文件中引用one模块（one模块是通过webpack命令
                     打包生成的模块，默认将引用所有打包生成的模块）
                 });
         ]

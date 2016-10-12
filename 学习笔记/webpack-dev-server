@@ -10,7 +10,8 @@ webpack-dev-server --port 3000(将端口号改为3000)
 文件，就会在浏览器中列出项目根目录中的所有的文件夹。
 6.第五条只是启动服务并不能自动刷新，要自动刷新需要用到webpack-dev-server --hot --inline
 7.当使用webpack-dev-server --hot --inline命令时，在每次修改文件，是将文件打包
-保存在内存中并没有写在磁盘里，这种打包得到的文件和项目根目录index.html位于同一级（但是你看不到，因为
+保存在内存中并没有写在磁盘里(默认是根据webpack.config.js打包文件，通过--config xxxx.js修改)，这种打包得到的文件
+和项目根目录中的index.html位于同一级（但是你看不到，因为
 它在内存中并没有在磁盘里）。使用webpack命令将打包后的文件保存在磁盘中
     例如在index.html文件中引入内存中的build.js
     <script src="build.js"></script>
@@ -21,4 +22,5 @@ webpack-dev-server --port 3000(将端口号改为3000)
     代替输入一长串命令（webpack-dev-server --hot --inline）
 9.配置根目录
 默认的根目录是项目根目录，但是通过webpack-dev-server --content-base 可以配置根目录。例如
-    webpack-dev-server --content-base './build/'将根目录改为build
+    webpack-dev-server --content-base './build/'将根目录改为build,在浏览器中输入
+    localhost：端口号，就会在build文件夹中去找要加载的内容

@@ -1,0 +1,4 @@
+1.用npm安装react,react-dom和babel-preset-react(它是babel用来处理react的工具),将'react'添加
+到.babelrc文件的presets数组中。
+2.在使用react的js文件中引入react和react-dom模块，require('react'),require('react-dom')。
+如果不使用相对路径，就会在node-modules文件夹中去查找相应的模块

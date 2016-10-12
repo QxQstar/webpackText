@@ -26,13 +26,8 @@ module.exports = {
     plugins:[
         new autoHtml({
             'title':"hello",
-            'filename':"class1.html",
-            chunks:['one']
-        }),
-        new autoHtml({
-            'title':"hi",
             'filename':"index.html",
-            chunks:['two']
+            chunks:['one']
         })
     ]
 };
